@@ -1,0 +1,26 @@
+const arr = [1, 1, 2, 4, 2, 4, 5, 3, 6];
+const createFreqMap = (arr) => {
+    const freqMap = new Map();
+    for(const item of arr){
+        if(freqMap.has(item)){
+            freqMap.set(item, freqMap.get(item)+1);
+        }else{
+            freqMap.set(item, 1);
+        }
+    }
+    return freqMap;
+}
+console.log(createFreqMap(arr)); //Map(6) { 1 => 2, 2 => 2, 4 => 2, 5 => 1, 3 => 1, 6 => 1 }
+
+var ans = {};
+const arrAns = (arr) => {
+    for(const num of arr){
+        if(ans[num]){
+            ans[num]++;
+        }else{
+            ans[num] = 1;
+        }
+    }  
+    return ans;
+}
+console.log("Map: ", arrAns(arr)); //Map:  { '1': 2, '2': 2, '3': 1, '4': 2, '5': 1, '6': 1 }
